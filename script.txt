@@ -1,0 +1,1 @@
+ffmpeg -ar 44100 -ac 2 -f s16le -i /dev/zero -f v4l2 -video_size 640x360 -framerate 24 -thread_queue_size 512 -i /dev/video0 -vcodec libx264 -pix_fmt yuv420p -preset ultrafast -b:v 2500k -maxrate 2500k -codec:a libmp3lame -ar 44100 -threads 6 -bufsize 2500k -f flv rtmp://a.rtmp.youtube.com/live2/hw35-18d6-3ey4-dpqm
